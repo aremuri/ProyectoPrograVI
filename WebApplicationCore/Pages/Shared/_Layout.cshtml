@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>@ViewData["Title"] - WebApplicationCore</title>
+    @await Html.PartialAsync("_HeaderPartial") @*Para consumir todos los componentes*@
+
+
+</head>
+<body style="background-image: url(https://i.pinimg.com/originals/f5/37/e7/f537e7611a8d2dbe4e5710b854aa6ee8.jpg); height: 500px; background-repeat: no-repeat; background-position-x: center; background-position-y: center; background-size: cover;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #273746">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Monchis S.A.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-page="">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Clientes/ClientesGrid">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/CatalogoProductos/CatalogoProductosGrid">Catalogo de Productos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Productos/ProductosGrid">Productos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Pedidos/PedidosGrid">Pedidos</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Entrega
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" asp-page="/Entregas/EntregaGrid">Entregas</a></li>
+                            <li><a class="dropdown-item" href="#">Camiones</a></li>
+                            <li><a class="dropdown-item" href="#">Choferes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <div class="dropdown btn-group dropstart">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarLoginUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            USER
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarLoginUser">
+                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    @await Html.PartialAsync("_ScriptsPartial") @*Para consumir todos los componentes*@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

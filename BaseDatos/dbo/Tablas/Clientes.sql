@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[Clientes]
+(
+	 IdCliente INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_IdCliente PRIMARY KEY CLUSTERED (IdCliente)
+   , Cedula VARCHAR(50) NOT NULL
+   , Nombre	VARCHAR(250) NOT NULL
+   , Apellidos	VARCHAR(250) NOT NULL
+   , Direccion	VARCHAR(500) NOT NULL
+   , FechaNacimiento DATE NOT NULL CONSTRAINT DF_Clientes_FechaNacimiento default('01-01-2020')
+   , Telefono	VARCHAR(250) NOT NULL default('00000000')
+   , Estado BIT NOT NULL
+)
+
+WITH (DATA_COMPRESSION = PAGE)
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX IDX_Cliente_Cedula
+ON dbo.Clientes(Cedula)
+WITH (DATA_COMPRESSION=PAGE)
+GO
+

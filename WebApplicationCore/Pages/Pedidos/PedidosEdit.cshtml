@@ -1,0 +1,99 @@
+﻿@page
+@model WebApplicationCore.Pages.Pedidos.PedidosEditModel
+@{
+}
+
+
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue ? "Actualizar" : "Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.Codigo" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.IdCliente" class="form-label">Cliente</label>
+
+                    <select asp-for="Entity.IdCliente" class="form-select"
+                            asp-items="@(new SelectList(Model.PedidosClientesLista,"IdCliente","Nombre"))"
+                            required>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.FechaPedido" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" @*asp-for="Entity.Telefono" maxlength="250"*@required readonly>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.FechaPedido" class="form-label">Fecha del Pedido</label>
+                    <input type="text" class="form-control" asp-for="Entity.FechaPedido" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.CategoriaId" class="form-label">Categoria Productos</label>
+
+                    <select asp-for="Entity.CategoriaId" class="form-select"
+                            asp-items="@(new SelectList(Model.CatalogoProductosLista,"CategoriaId","NombreCategoria"))"
+                            required>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.ProductoId" class="form-label">Producto</label>
+                    <select asp-for="Entity.Producto" class="form-select" v-model="Entity.Producto"
+                            v-on:change="OnChangeCategoria" required>
+                        <option v-for="item in ProductosLista" :value="item.Producto"> {{item.Nombre}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.ProductoId" class="form-label">Catacteristica</label>
+                    <select asp-for="Entity.Producto" class="form-select" v-model="Entity.Producto"
+                            v-on:change="OnChangeCategoria" required>
+                        @*<option v-for="item in ProductosLista" :value="item.Producto"> {{item.Nombre}}</option>*@
+                    </select>
+                </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Entity.Caantidad" class="form-label">Cantidad</label>
+                        <input type="text" class="form-control" asp-for="Entity.Cantidad" maxlength="250" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Entity.Envio" class="form-label">Costo de Envio</label>
+                        <input type="text" class="form-control" asp-for="Entity.Envio" maxlength="250" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Entity.Subtotal" class="form-label">Subtotal</label>
+                        <input type="text" class="form-control" asp-for="Entity.Subtotal" maxlength="250" required readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Entity.IVA" class="form-label">IVA 13%</label>
+                        <input type="text" class="form-control" asp-for="Entity.IVA" maxlength="250" required readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Entity.Total" class="form-label">Total</label>
+                        <input type="text" class="form-control" asp-for="Entity.Total" maxlength="250" required readonly>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-outline-primary">
+                                @(Model.id.HasValue?"Actualizar":"Agregar")
+                            </button>
+                        </div>
+                    </div>
+</form>
+    </div>
+    </div>
+</div>
+@section Scripts{
+    <script defer src="~/App/Pedidos/PedidosEdit.js"></script>
+
+}

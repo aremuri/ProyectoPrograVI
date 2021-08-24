@@ -1,0 +1,90 @@
+﻿@page
+@model WebApplicationCore.Pages.Clientes.ClientesGridModel
+@{
+}
+
+<div class=" container">
+
+
+    <div class="card">
+        <div class="card-header">
+            CLIENTES
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-outline-primary" asp-page="ClientesEdit" >
+                <i class = 'bx bxs-add-to-queue'></i>
+            </a>@*boton agregar*@
+
+
+            <div class=" row">
+                <div class="col-12">
+                    <table id="GridView" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>IdCliente</th>
+                                <th>Cedula</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Dirección</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Telefono</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                            <tr>
+                                <td>@item.IdCliente</td>
+                                <td>@item.Cedula</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Apellidos</td>
+                                <td>@item.Direccion</td>
+                                <td>@item.FechaNacimiento</td>
+                                <td>@item.Telefono</td>
+                                <td>@(item.Estado ?"Activo" :"Inactivo")</td>
+                                <td>
+                                    <a class="btn btn-outline-primary" asp-page="ClientesEdit" asp-route-id="@item.IdCliente">
+                                        <i class='bx bxs-edit-alt'></i>
+                                    </a>@*boton editar*@
+
+                                    <button type="button" class="btn btn-outline-primary" onclick="ClientesGrid.OnClickEliminar(@item.IdCliente)">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>@*boton Eliminar*@
+
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+@section Scripts {
+
+    <script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+    </script>
+
+    <script defer src="~/App/Clientes/ClientesGrid.js"></script>
+
+
+}

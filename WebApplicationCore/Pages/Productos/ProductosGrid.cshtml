@@ -1,0 +1,76 @@
+﻿@page
+@model WebApplicationCore.Pages.Productos.ProductosGridModel
+@{
+}
+
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-header">
+            PRODUCTOS
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-outline-primary" asp-page="ProductosEdit">
+                <i class='bx bx-add-to-queue'></i>
+            </a>
+
+            <div class="row">
+                <div class="col-12">
+                    <table id="GridView" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>IdProducto</th>
+                                <th>Categoria</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Caracteristicas</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                            <tr>
+                                <td>@item.ProductoId</td>
+                                <td>@item.CatalogoProductos.NombreCategoria</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.Caracteristicas</td>
+                                <td>@item.Precio</td>
+                                <td>@(item.Estado ? "Activo": "Inactivo")</td>
+                                <td>
+                                    <a class="btn btn-outline-primary" asp-page="ProductosEdit" asp-route-id="@item.ProductoId">
+                                        <i class='bx bxs-edit'></i>
+                                    </a>
+
+                                    <button type="button" class="btn btn-outline-primary"
+                                            onclick="ProductosGrid.OnClickEliminar(@item.ProductoId)">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts {
+
+    <script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+    </script>
+
+    <script defer src="~/App/Productos/ProductosGrid.js"></script>
+
+
+}

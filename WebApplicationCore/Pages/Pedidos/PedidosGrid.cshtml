@@ -1,0 +1,82 @@
+﻿@page
+@model WebApplicationCore.Pages.Pedidos.PedidosGridModel
+@{
+}
+
+<div class=" container">
+
+
+    <div class="card">
+        <div class="card-header">
+            PEDIDOS
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-outline-primary" title="Ingresar Pedido" asp-page="PedidosEdit">
+                <i class='bx bxs-add-to-queue'></i>
+            </a>@*boton agregar*@
+
+            <br />  <br />
+            <div class=" row">
+                <div class="col-12">
+                    <table id="GridView" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Codigo Pedido</th>
+                                <th>Cliente</th>
+                                <th>Teléfono</th>
+                                <th>Fecha Pedido</th>
+                                <th>Categoria Producto</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Envio</th>
+                                <th>IVA 13%</th>
+                                <th>Total</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                            <tr>
+                                <td>@item.Codigo</td>
+                                <td>@item.FechaPedido</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.Subtotal</td>
+                                <td>@item.Envio</td>
+                                <td>@item.IVA</td>
+                                <td>@item.Total</td>
+
+                                <td>
+                                    <a class="btn btn-outline-primary" title="Actualizar" asp-page="PedidosEdit" asp-route-id="@item.Codigo">
+                                        <i class='bx bxs-edit'></i>
+                                    </a>
+
+                                    <button type="button" title="Eliminar" class="btn btn-outline-danger" onclick="PedidosGrid.OnClickEliminar(@item.Codigo)">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>
+                                    <br />
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+    </script>
+
+    <script defer src="~/App/Pedidos/PedidosGrid.js"></script>
+
+
+}

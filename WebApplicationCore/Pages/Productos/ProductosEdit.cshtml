@@ -1,0 +1,71 @@
+﻿@page
+@model WebApplicationCore.Pages.Productos.ProductosEditModel
+@{
+}
+
+<div id="AppEdit" class="container">
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue ? "Actualizar" : "Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.ProductoId" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.CategoriaId" class="form-label">Categoria Productos</label>
+
+                    <select asp-for="Entity.CategoriaId" class="form-select"
+                            asp-items="@(new SelectList(Model.CatalogoProductosLista,"CategoriaId","NombreCategoria"))" required>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Cantidad" class="form-label">Cantidad Disponible</label>
+                    <input type="text" class="form-control" asp-for="Entity.Cantidad" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Caracteristicas" class="form-label">Características</label>
+                    <input type="text" class="form-control" asp-for="Entity.Caracteristicas" maxlength="500" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Precio" class="form-label">Precio</label>
+                    <input type="text" class="form-control" asp-for="Entity.Precio" maxlength="500" required>
+                </div>
+
+                <div class="form-group form-check form-switch">
+                    <label for="Entity.Estado" class="form-label">Estado</label>
+                    <input type="checkbox" class="form-check-input" asp-for="Entity.Estado" value="true">
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-outline-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar")
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script defer src="~/App/Productos/ProductosEdit.js"></script>
+
+}
+
+

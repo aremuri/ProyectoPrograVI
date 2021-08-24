@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\MarcaProductos\**" />
+    <Content Remove="Pages\MarcaProductos\**" />
+    <EmbeddedResource Remove="Pages\MarcaProductos\**" />
+    <None Remove="Pages\MarcaProductos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Pedidos\PedidosGrid.cshtml" />
+    <Content Remove="wwwroot\App\CatalogoProductos\CatalogoProductosEdit.ts" />
+    <Content Remove="wwwroot\App\CatalogoProductos\CatalogoProductosGrid.ts" />
+    <Content Remove="wwwroot\App\Clientes\ClientesEdit.ts" />
+    <Content Remove="wwwroot\App\Clientes\ClientesGrid.ts" />
+    <Content Remove="wwwroot\App\Entregas\EntregaEdit.ts" />
+    <Content Remove="wwwroot\App\Entregas\EntregaGrid.ts" />
+    <Content Remove="wwwroot\App\Pedidos\PedidosEdit.ts" />
+    <Content Remove="wwwroot\App\Pedidos\PedidosGrid.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj" />
+    <ProjectReference Include="..\WBL\WBL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\CatalogoProductos\CatalogoProductosEdit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\CatalogoProductos\CatalogoProductosGrid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Clientes\ClientesEdit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Clientes\ClientesGrid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Entregas\EntregaEdit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Entregas\EntregaGrid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Pedidos\PedidosEdit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Pedidos\PedidosGrid.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Pedidos\PedidosGrid.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Pedidos\PedidosGrid.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Pedidos\PedidosGrid.cshtml" />
+  </ItemGroup>
+
+</Project>

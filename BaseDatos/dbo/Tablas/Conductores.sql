@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Conductores]
+(
+	Nombre	VARCHAR(250) NOT NULL
+	, Apellidos	VARCHAR(250) NOT NULL
+	, Cedula INT NOT NULL CONSTRAINT PK_Conductores PRIMARY KEY CLUSTERED(Cedula) default('000000000')
+	, Telefono	VARCHAR(250) NOT NULL default('00000000')
+    , Estado BIT NOT NULL
+)WITH (DATA_COMPRESSION = PAGE)
+GO
