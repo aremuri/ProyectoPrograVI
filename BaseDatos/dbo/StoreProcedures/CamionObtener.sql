@@ -1,12 +1,12 @@
-﻿CREATE PROCEDURE [dbo].CamionObtener
-@CamionId INT=NULL
+﻿CREATE PROCEDURE [dbo].[CamionObtener]
+	@CamionId INT=NULL
 
 AS BEGIN
 	SET NOCOUNT ON
 
 	SELECT
 		   CamionId
-		,  Caracteristicas
+		,  Cualidad
 		,  Estado
 
 	FROM dbo.Camiones

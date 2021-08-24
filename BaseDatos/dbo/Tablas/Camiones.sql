@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Camiones]
 (
 	CamionId INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_CamionRepartidor PRIMARY KEY CLUSTERED (CamionId)
- ,  Caracteristicas VARCHAR(250) NOT NULL
+ ,  Cualidad VARCHAR(250) NOT NULL
  ,  Estado BIT NOT NULL
 )WITH (DATA_COMPRESSION=PAGE)
 GO

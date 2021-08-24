@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <Content Remove="Pages\Pedidos\PedidosGrid.cshtml" />
+    <Content Remove="wwwroot\App\Camiones\CamionEdit.ts" />
+    <Content Remove="wwwroot\App\Camiones\CamionGrid.ts" />
     <Content Remove="wwwroot\App\CatalogoProductos\CatalogoProductosEdit.ts" />
     <Content Remove="wwwroot\App\CatalogoProductos\CatalogoProductosGrid.ts" />
     <Content Remove="wwwroot\App\Clientes\ClientesEdit.ts" />
@@ -34,6 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Camiones\CamionEdit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Camiones\CamionGrid.ts" />
     <TypeScriptCompile Include="wwwroot\App\CatalogoProductos\CatalogoProductosEdit.ts" />
     <TypeScriptCompile Include="wwwroot\App\CatalogoProductos\CatalogoProductosGrid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Clientes\ClientesEdit.ts" />

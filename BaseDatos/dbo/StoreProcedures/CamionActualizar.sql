@@ -1,6 +1,7 @@
-﻿CREATE PROCEDURE dbo.CamionActualizar
+﻿CREATE PROCEDURE [dbo].[CamionActualizar]
+	
 @CamionId INT,
-@Caracteristicas VARCHAR(250),
+@Cualidad VARCHAR(250),
 @Estado BIT
 AS BEGIN
 SET NOCOUNT ON
@@ -10,7 +11,7 @@ BEGIN TRANSACTION TRASA
 	BEGIN TRY
 		
 	UPDATE dbo.Camiones SET
-		   Caracteristicas=@Caracteristicas,
+		   Cualidad=@Cualidad,
 		   Estado=@Estado
 
 	WHERE CamionId=@CamionId

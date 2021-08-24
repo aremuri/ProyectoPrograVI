@@ -1,6 +1,6 @@
-﻿CREATE PROCEDURE dbo.CamionInsertar
-    @CamionId INT,
-	@Caracteristicas varchar(250)	,
+﻿CREATE PROCEDURE [dbo].[CamionInsertar]
+	
+	@Cualidad varchar(250)	,
 	@Estado BIT	
 AS BEGIN
 SET NOCOUNT ON
@@ -11,14 +11,14 @@ SET NOCOUNT ON
 		
 		INSERT INTO dbo.Camiones
 		(
-	     CamionId,
-	     Caracteristicas,
+	    
+	     Cualidad,
 	     Estado 
 		)
 		VALUES
 		(
-		 @CamionId,
-	     @Caracteristicas,
+		
+	     @Cualidad,
 	     @Estado 
 		)
 

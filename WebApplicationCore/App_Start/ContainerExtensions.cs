@@ -23,6 +23,7 @@ namespace WebApplicationCore
             services.AddTransient<ICatalogoProvinciaService, CatalogoProvinciaService>();
             services.AddTransient<ICatalogoCantonService, CatalogoCantonService>();
             services.AddTransient<ICatalogoDistritoService, CatalogoDistritoService>();
+            services.AddTransient<ICamionesServices, CamionesServices>();
             return services;
         }
     }

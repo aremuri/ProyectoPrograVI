@@ -9,6 +9,10 @@ namespace App.AxiosProvider   {
     export const PedidosChangeCategoria = (entity) => axios.post<any[]>("Pedidos/PedidosEdit?handler=ChangeCategoria", entity).then(({ data }) => data);
    // export const PedidosChangeProducto = (entity) => axios.post<any[]>("Pedidos/PedidosEdit?handler=ChangeProducto", entity).then(({ data }) => data);
     export const PedidosGuardar = (entity) => axios.post<DBEntity>("Pedidos/PedidosEdit", entity).then(({ data }) => data);
+
+    export const CamionEliminar = (id) => axios.delete<DBEntity>("Camiones/CamionGrid?handler=Eliminar&id=" + id).then(({ data }) => data);
+
+    export const CamionGuardar = (entity) => axios.post<DBEntity>("Camiones/CamionEdit", entity).then(({ data }) => data);
     
 }
 

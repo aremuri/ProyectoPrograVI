@@ -28,6 +28,14 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        AxiosProvider.CamionEliminar = function (id) { return axios.delete("Camiones/CamionGrid?handler=Eliminar&id=" + id).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.CamionGuardar = function (entity) { return axios.post("Camiones/CamionEdit", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
     })(AxiosProvider = App.AxiosProvider || (App.AxiosProvider = {}));
 })(App || (App = {}));
 //# sourceMappingURL=AxiosProvider.js.map

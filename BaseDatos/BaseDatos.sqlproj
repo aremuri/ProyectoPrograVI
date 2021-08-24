@@ -101,12 +101,13 @@
     <Build Include="dbo\StoreProcedures\EntregaActualizar.sql" />
     <Build Include="dbo\StoreProcedures\PedidosClientesLista.sql" />
     <Build Include="dbo\StoreProcedures\PedidosProductosLista.sql" />
+    <Build Include="dbo\StoreProcedures\CamionLista.sql" />
+    <Build Include="dbo\StoreProcedures\CamionActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\CamionEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\CamionInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\CamionObtener.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dbo\StoreProcedures\CamionActualizar.sql" />
-    <None Include="dbo\StoreProcedures\CamionEliminar.sql" />
-    <None Include="dbo\StoreProcedures\CamionInsertar.sql" />
-    <None Include="dbo\StoreProcedures\CamionObtener.sql" />
     <None Include="dbo\StoreProcedures\ConductoresInsertar.sql" />
     <None Include="dbo\StoreProcedures\ConductoresEliminar.sql" />
     <None Include="dbo\StoreProcedures\ConductoresActualizar.sql" />

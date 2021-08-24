@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE dbo.CamionEliminar
+﻿CREATE PROCEDURE [dbo].[CamionEliminar]
  @CamionId INT
   
 AS BEGIN
