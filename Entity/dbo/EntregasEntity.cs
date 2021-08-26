@@ -14,6 +14,8 @@ namespace Entity
             Provincia = Provincia ?? new CatalogoProvinciaEntity();
             Canton = Canton ?? new CatalogoCantonEntity();
             Distrito = Distrito ?? new CatalogoDistritoEntity();
+            CamionesEntity = CamionesEntity ?? new CamionesEntity();
+            ConductoresEntity = ConductoresEntity ?? new ConductoresEntity();
         }
 
         public int? EntregaId  { get; set; }
@@ -25,7 +27,10 @@ namespace Entity
         public CatalogoCantonEntity Canton { get; set; }
         public int? IdCatalogoDistrito { get; set; }
         public CatalogoDistritoEntity Distrito { get; set; }
-        public int? CamionId { get; set; }
+        public int? IdCamion { get; set; }
+        public virtual CamionesEntity CamionesEntity { get; set; }
+        public int? IdConductor { get; set; }
+        public virtual ConductoresEntity ConductoresEntity { get; set; }
 
 
     }

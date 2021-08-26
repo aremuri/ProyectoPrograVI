@@ -9,7 +9,6 @@
 			E.EntregaId
 		,   E.FechaEntrega
 		,   E.PedidoId
-		,   E.CamionId
 		,   E.Estado
 
 		,   CP.IdCatalogoProvincia
@@ -20,7 +19,14 @@
 
 		,   CD.IdCatalogoDistrito
 		,	CD.NombreCatalogoDistrito
-				
+
+		,   C.CamionId
+		,   C.Cualidad
+
+		,   D.ConductorId
+		,   D.NombreConductor
+
+			
 
 	FROM dbo.Entregas E
 	 INNER JOIN dbo.CatalogoProvincia CP
@@ -29,6 +35,13 @@
          ON E.IdCatalogoCanton = CC.IdCatalogoCanton
 	 INNER JOIN dbo.CatalogoDistrito CD
          ON E.IdCatalogoDistrito = CD.IdCatalogoDistrito
+	 INNER JOIN dbo.Camiones C
+         ON E.IdCamion = C.CamionId
+	INNER JOIN dbo.Conductores D
+		 ON E.IdConductor = D.ConductorId
+	
+
+	
 	WHERE
 	     (@EntregaId IS NULL OR EntregaId=@EntregaId)
 

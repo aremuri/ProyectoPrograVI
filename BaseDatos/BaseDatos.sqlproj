@@ -72,9 +72,7 @@
     <Build Include="dbo\StoreProcedures\PedidosInsertar.sql" />
     <Build Include="dbo\StoreProcedures\PedidosObtener.sql" />
     <Build Include="dbo\Tablas\Camiones.sql" />
-    <Build Include="dbo\Tablas\Conductores.sql" />
     <Build Include="dbo\StoreProcedures\UsuarioRegistrar.sql" />
-    <Build Include="dbo\StoreProcedures\ListaClientes.sql" />
     <Build Include="dbo\StoreProcedures\Login.sql" />
     <Build Include="dbo\Tablas\Usuarios.sql" />
     <Build Include="dbo\StoreProcedures\ProductosActualizar.sql" />
@@ -106,11 +104,11 @@
     <Build Include="dbo\StoreProcedures\CamionEliminar.sql" />
     <Build Include="dbo\StoreProcedures\CamionInsertar.sql" />
     <Build Include="dbo\StoreProcedures\CamionObtener.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="dbo\StoreProcedures\ConductoresInsertar.sql" />
-    <None Include="dbo\StoreProcedures\ConductoresEliminar.sql" />
-    <None Include="dbo\StoreProcedures\ConductoresActualizar.sql" />
-    <None Include="dbo\StoreProcedures\ConductoresObtener.sql" />
+    <Build Include="dbo\Tablas\Conductores.sql" />
+    <Build Include="dbo\StoreProcedures\ConductorObtener.sql" />
+    <Build Include="dbo\StoreProcedures\ConductorInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\ConductorActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\ConductorEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\ConductorLista.sql" />
   </ItemGroup>
 </Project>

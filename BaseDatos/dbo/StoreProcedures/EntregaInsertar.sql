@@ -4,7 +4,8 @@
 	@IdCatalogoProvincia INT,
 	@IdCatalogoCanton INT,
 	@IdCatalogoDistrito INT,
-	@CamionId INT,
+	@IdCamion INT,
+    @IdConductor INT,
     @Estado BIT
 
 	AS BEGIN
@@ -22,7 +23,8 @@ SET NOCOUNT ON
 		  IdCatalogoProvincia,
 		  IdCatalogoCanton,
 		  IdCatalogoDistrito,
-		  CamionId,
+		  IdCamion,
+		  IdConductor,
 		  Estado
 		)
 		VALUES
@@ -33,7 +35,8 @@ SET NOCOUNT ON
 			@IdCatalogoProvincia,
 			@IdCatalogoCanton,
 			@IdCatalogoDistrito,
-			@CamionId,
+			@IdCamion,
+			@IdConductor,
 			@Estado
 		)
 

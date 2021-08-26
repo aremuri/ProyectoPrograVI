@@ -1,0 +1,67 @@
+﻿@page
+@model WebApplicationCore.Pages.Conductor.ConductorGridModel
+@{
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+            CONDUCTORES
+
+
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-outline-primary" asp-page="ConductorEdit">
+                <i class='bx bxs-comment-add'></i>
+            </a>
+
+            <div class="row">
+
+                <div class="col-12"></div>
+                <table id="GridView" class="table table-bordered table-striped table-over">
+                    <thead>
+                        <tr>
+                            <th>IdConductor</th>
+                            <th>Cedula</th>
+                            <th>Nombre Completo</th>
+                            <th>Telefono</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.GridList)
+                        {
+                        <tr>
+                            <td>@item.ConductorId</td>
+                            <td>@item.CedulaConductor</td>
+                            <td>@item.NombreConductor</td>
+                            <td>@item.TelefonoConductor</td>
+                            <td>@(item.Estado ?"Activo" :"Inactivo")</td>
+                            <td>
+                                <a class="btn btn-outline-primary" asp-page="ConductorEdit" asp-route-id="@item.ConductorId">
+                                    <i class='bx bx-edit-alt'></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-danger"
+                                        onclick="ConductorGrid.OnClickEliminar(@item.ConductorId)">
+                                    <i class='bx bx-trash'></i>
+                                </button>
+                            </td>
+                        </tr>
+}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script defer src="~/App/Conductor/ConductorGrid.js"></script>
+}

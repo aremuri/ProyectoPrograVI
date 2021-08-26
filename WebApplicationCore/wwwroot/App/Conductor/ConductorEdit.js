@@ -1,6 +1,6 @@
 "use strict";
-var ClientesEdit;
-(function (ClientesEdit) {
+var ConductorEdit;
+(function (ConductorEdit) {
     var Entity = $("#AppEdit").data("entity");
     var Formulario = new Vue({
         data: {
@@ -11,10 +11,10 @@ var ClientesEdit;
             Save: function () {
                 if (BValidateData(this.Formulario)) {
                     Loading.fire("Guardando");
-                    App.AxiosProvider.ClientesGuardar(this.Entity).then(function (data) {
+                    App.AxiosProvider.ConductorGuardar(this.Entity).then(function (data) {
                         Loading.close();
                         if (data.CodeError == 0) {
-                            Toast.fire({ title: "Se guardó el registro", icon: "success" }).then(function () { return window.location.href = "Clientes/ClientesGrid"; });
+                            Toast.fire({ title: "Se guardó el registro", icon: "success" }).then(function () { return window.location.href = "Conductor/ConductorGrid"; });
                         }
                         else {
                             Toast.fire({ title: data.MsgError, icon: "error" });
@@ -31,5 +31,5 @@ var ClientesEdit;
         },
     });
     Formulario.$mount("#AppEdit");
-})(ClientesEdit || (ClientesEdit = {}));
-//# sourceMappingURL=ClientesEdit.js.map
+})(ConductorEdit || (ConductorEdit = {}));
+//# sourceMappingURL=ConductorEdit.js.map

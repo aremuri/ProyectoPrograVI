@@ -1,4 +1,4 @@
-﻿namespace ClientesGrid {
+﻿namespace ConductorGrid {
 
     export function OnClickEliminar(id) {
 
@@ -6,7 +6,7 @@
             .then(result => {
                 if (result.isConfirmed) {
                     Loading.fire("Borrando");
-                    App.AxiosProvider.ClientesEliminar(id).then(data => {
+                    App.AxiosProvider.ConductorEliminar(id).then(data => {
                         Loading.close();
 
                         if (data.CodeError == 0) {

@@ -24,12 +24,15 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-page="/Clientes/ClientesGrid">Clientes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/CatalogoProductos/CatalogoProductosGrid">Catalogo de Productos</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Productos/ProductosGrid">Productos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" asp-page="/CatalogoProductos/CatalogoProductosGrid">Catalogo de Productos</a></li>
+                            <li><a class="dropdown-item" asp-page="/Productos/ProductosGrid">Productos</a></li>
+                        </ul>
                     </li>
 
                     <li class="nav-item">
@@ -44,7 +47,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" asp-page="/Entregas/EntregaGrid">Entregas</a></li>
                             <li><a class="dropdown-item" asp-page="/Camiones/CamionGrid">Camiones</a></li>
-                            <li><a class="dropdown-item" href="#">Choferes</a></li>
+                            <li><a class="dropdown-item" asp-page="/Conductor/ConductorGrid">Conductores</a></li>
                         </ul>
                     </li>
                 </ul>

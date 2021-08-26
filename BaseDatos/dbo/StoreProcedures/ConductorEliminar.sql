@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].ConductoresEliminar
- @Cedula INT
+﻿CREATE PROCEDURE [dbo].[ConductorEliminar]
+	 @ConductorId INT
   
 AS BEGIN
 SET NOCOUNT ON
@@ -7,12 +7,10 @@ SET NOCOUNT ON
 	BEGIN TRANSACTION TRASA
 
 	BEGIN TRY
-	-- AQUI VA EL CODIGO
 		
-	DELETE FROM Conductores WHERE Cedula=@Cedula
+	DELETE FROM DBO.Conductores WHERE ConductorId=@ConductorId
 
-		COMMIT TRANSACTION TRASA
-		
+		COMMIT TRANSACTION TRASA		
 		SELECT 0 AS CodeError, '' AS MsgError
 
 	END TRY

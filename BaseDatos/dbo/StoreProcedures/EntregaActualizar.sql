@@ -5,7 +5,8 @@
 	@IdCatalogoProvincia INT,
 	@IdCatalogoCanton INT,
 	@IdCatalogoDistrito INT,
-	@CamionId INT,
+	@IdCamion INT,
+	@IdConductor INT,
     @Estado BIT
 
 	AS BEGIN
@@ -22,7 +23,8 @@
 		IdCatalogoProvincia=@IdCatalogoProvincia,
 		IdCatalogoCanton=@IdCatalogoCanton,
 		IdCatalogoDistrito=@IdCatalogoDistrito,
-		CamionId= @CamionId,
+		IdCamion= @IdCamion,
+		IdConductor = @IdConductor,
 		Estado=@Estado
 
 	WHERE EntregaId=@EntregaId

@@ -15,19 +15,29 @@ namespace WebApplicationCore.Pages.Entregas
         private readonly ICatalogoProvinciaService catalogoProvinciaService;
         private readonly ICatalogoCantonService catalogoCantonService;
         private readonly ICatalogoDistritoService catalogoDistritoService;
+        private readonly ICamionesServices camionesServices;
+        private readonly IConductorServices conductorServices;
 
-        public EntregaEditModel(IEntregaServices entregaServices, ICatalogoProvinciaService catalogoProvinciaService, ICatalogoCantonService catalogoCantonService, ICatalogoDistritoService catalogoDistritoService)
+        public EntregaEditModel(IEntregaServices entregaServices, ICatalogoProvinciaService catalogoProvinciaService, ICatalogoCantonService catalogoCantonService, ICatalogoDistritoService catalogoDistritoService, ICamionesServices camionesServices, IConductorServices conductorServices)
         {
             this.entregaServices = entregaServices;
             this.catalogoProvinciaService = catalogoProvinciaService;
             this.catalogoCantonService = catalogoCantonService;
             this.catalogoDistritoService = catalogoDistritoService;
+            this.camionesServices = camionesServices;
+            this.conductorServices = conductorServices;
         }
 
         [BindProperty]
         [FromBody]
+
+
         public EntregasEntity Entity { get; set; } = new EntregasEntity();
         public IEnumerable<CatalogoProvinciaEntity> ProvinciaLista { get; set; } = new List<CatalogoProvinciaEntity>();
+
+        public IEnumerable<CamionesEntity> CamionesLista { get; set; } = new List<CamionesEntity>();
+
+        public IEnumerable<ConductoresEntity> ConductorLista { get; set; } = new List<ConductoresEntity>();
 
         [BindProperty(SupportsGet = true)]
         public int? id { get; set; }
@@ -43,12 +53,13 @@ namespace WebApplicationCore.Pages.Entregas
                 }
 
                 ProvinciaLista = await catalogoProvinciaService.GetLista();
+                CamionesLista = await camionesServices.GetLista();
+                ConductorLista = await conductorServices.GetLista();
 
                 return Page();
             }
             catch (Exception ex)
             {
-
                 return Content(ex.Message);
             }
 

@@ -13,7 +13,15 @@ namespace App.AxiosProvider   {
     export const CamionEliminar = (id) => axios.delete<DBEntity>("Camiones/CamionGrid?handler=Eliminar&id=" + id).then(({ data }) => data);
 
     export const CamionGuardar = (entity) => axios.post<DBEntity>("Camiones/CamionEdit", entity).then(({ data }) => data);
-    
+
+    export const ConductorEliminar = (id) => axios.delete<DBEntity>("Conductor/ConductorGrid?handler=Eliminar&id=" + id).then(({ data }) => data);
+
+    export const ConductorGuardar = (entity) => axios.post<DBEntity>("Conductor/ConductorEdit", entity).then(({ data }) => data);
+
+    export const ClientesEliminar = (id) => axios.delete<DBEntity>("Clientes/ClientesGrid?handler=Eliminar&id=" + id).then(({ data }) => data);
+
+    export const ClientesGuardar = (entity) => axios.post<DBEntity>("Clientes/ClientesEdit", entity).then(({ data }) => data);
+
 }
 
 

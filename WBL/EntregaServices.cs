@@ -28,11 +28,8 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<EntregasEntity,
-                    CatalogoProvinciaEntity,
-                    CatalogoCantonEntity,
-                    CatalogoDistritoEntity
-                    >("EntregaObtener", "IdCatalogoProvincia,IdCatalogoCanton,IdCatalogoDistrito");
+                var result = sql.QueryAsync<EntregasEntity,CatalogoProvinciaEntity,CatalogoCantonEntity,CatalogoDistritoEntity,CamionesEntity,ConductoresEntity
+                    >("EntregaObtener", "IdCatalogoProvincia,IdCatalogoCanton,IdCatalogoDistrito,CamionId,ConductorId");
 
                 return await result;
             }
@@ -43,21 +40,7 @@ namespace WBL
             }
         }
 
-        //public async Task<IEnumerable<EntregasEntity>> GetLista()
-        //{
-        //    try
-        //    {
-        //        var result = sql.QueryAsync<EntregasEntity>("EntregaLista");
-
-        //        return await result;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
+      
         public async Task<EntregasEntity> GetById(EntregasEntity entity)
         {
             try
@@ -86,7 +69,8 @@ namespace WBL
                     entity.IdCatalogoProvincia,
                     entity.IdCatalogoCanton,
                     entity.IdCatalogoDistrito,
-                    entity.CamionId,
+                    entity.IdCamion,
+                    entity.IdConductor,
                     entity.Estado,
 
                 });
@@ -112,7 +96,8 @@ namespace WBL
                     entity.IdCatalogoProvincia,
                     entity.IdCatalogoCanton,
                     entity.IdCatalogoDistrito,
-                    entity.CamionId,
+                    entity.IdCamion,
+                    entity.IdConductor,
                     entity.Estado,
                 });
 

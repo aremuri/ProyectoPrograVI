@@ -7,24 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 using Entity;
 
-namespace WebApplicationCore.Pages.Clientes
+namespace WebApplicationCore.Pages.Conductor
 {
-    public class ClientesEditModel : PageModel
+    public class ConductorEditModel : PageModel
     {
-        private readonly IClientesServices clientesServices;
+        private readonly IConductorServices conductorServices;
 
-        public ClientesEditModel(IClientesServices clientesServices)
+        public ConductorEditModel(IConductorServices conductorServices)
         {
-            this.clientesServices = clientesServices;
+            this.conductorServices = conductorServices;
         }
 
         [BindProperty]
         [FromBody]
-        public ClientesEntity Entity { get; set; } = new ClientesEntity();
+        public ConductoresEntity Entity { get; set; } = new ConductoresEntity();
 
         [BindProperty(SupportsGet = true)]
+        public int? id { get; set; }
 
-        public int? id { get; set; }//valida si el Id viene vacio
 
         public async Task<IActionResult> OnGet()
         {
@@ -32,7 +32,7 @@ namespace WebApplicationCore.Pages.Clientes
             {
                 if (id.HasValue)
                 {
-                    Entity = await clientesServices.GetById(new() { IdCliente = id });
+                    Entity = await conductorServices.GetById(new() { ConductorId = id });
                 }
 
                 return Page();
@@ -49,15 +49,15 @@ namespace WebApplicationCore.Pages.Clientes
             {
                 var result = new DBEntity();
 
-                if (Entity.IdCliente.HasValue)
+                if (Entity.ConductorId.HasValue)
                 {
                     //Actualizar 
-                    result = await clientesServices.Update(Entity);
+                    result = await conductorServices.Update(Entity);
                 }
                 else
                 {
                     //Nuevo 
-                    result = await clientesServices.Create(Entity);
+                    result = await conductorServices.Create(Entity);
                 }
 
                 return new JsonResult(result);
@@ -72,6 +72,5 @@ namespace WebApplicationCore.Pages.Clientes
             }
 
         }
-
     }
 }

@@ -3,54 +3,56 @@
 @{
 }
 
-<div id="AppEdit" class="container">
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
     <div class="card">
         <div class="card-header">
             @(Model.id.HasValue ? "Actualizar" : "Nuevo")
         </div>
         <div class="card-body">
-            <form id="FormEdit" method="post">
-                <input type="hidden" asp-for="Entity.IdCliente" />
+            <form id="FormEdit">
+
+                <input type="hidden" asp-for="Entity.IdCliente" v-model="Entity.IdCliente" />
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
-                    <input type="text" class="form-control" asp-for="Entity.Cedula" maxlength="250" required />
+                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="200" required />
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.Nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" asp-for="Entity.Nombre" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" v-model="Entity.Nombre" maxlength="250" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.Apellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" asp-for="Entity.Apellidos" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Apellidos" v-model="Entity.Apellidos" maxlength="250" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.Direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" asp-for="Entity.Direccion" maxlength="500" required>
+                    <input type="text" class="form-control" asp-for="Entity.Direccion" v-model="Entity.Direccion" maxlength="500" required>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" asp-for="Entity.FechaNacimiento" maxlength="250" required>
+                    <label for="Entity.FechaNacimiento" class="form-label">Fecha Nacimiento</label>
+                    <b-form-datepicker id="FechaNacimiento" name="FechaNacimiento" class="form-control" v-model="Entity.FechaNacimiento" required>
+                    </b-form-datepicker>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.Telefono" class="form-label">Telefono</label>
-                    <input type="text" class="form-control" asp-for="Entity.Telefono" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Telefono" v-model="Entity.Telefono" maxlength="250" required>
                 </div>
 
                 <div class="form-group form-check form-switch">
-                    <input class="form-check-input" type="checkbox" asp-for="Entity.Estado" value="true">
+                    <input class="form-check-input" type="checkbox" asp-for="Entity.Estado" v-model="Entity.Estado" value="true">
                     <label class="form-check-label" for="Entity_Estado">Estado</label>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
-                        <button type="submit" class="btn btn-outline-primary">
-                            @(Model.id.HasValue?"Actualizar":"Agregar")
+                        <button type="button" @@click="Save" class="btn btn-outline-primary">
+                            @(Model.id.HasValue ? "Actualizar":"Agregar")
                         </button>
                     </div>
                 </div>

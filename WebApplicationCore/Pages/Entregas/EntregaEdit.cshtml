@@ -55,8 +55,19 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.CamionId" class="form-label">NumCamion</label>
-                    <input type="text" class="form-control" asp-for="Entity.CamionId" v-model="Entity.CamionId" maxlength="250" required>
+                    <label for="Entity.CamionId" class="form-label">Seleccione el Camion</label>
+
+                    <select asp-for="Entity.IdCamion" class="form-select"
+                            asp-items="@(new SelectList(Model.CamionesLista,"CamionId","Cualidad"))" required>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.CamionId" class="form-label">Seleccione el Conductor</label>
+
+                    <select asp-for="Entity.IdConductor" class="form-select"
+                            asp-items="@(new SelectList(Model.ConductorLista,"ConductorId","NombreConductor"))" required>
+                    </select>
                 </div>
 
                 <div class="form-group form-check form-switch">

@@ -36,6 +36,22 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        AxiosProvider.ConductorEliminar = function (id) { return axios.delete("Conductor/ConductorGrid?handler=Eliminar&id=" + id).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.ConductorGuardar = function (entity) { return axios.post("Conductor/ConductorEdit", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.ClientesEliminar = function (id) { return axios.delete("Clientes/ClientesGrid?handler=Eliminar&id=" + id).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.ClientesGuardar = function (entity) { return axios.post("Clientes/ClientesEdit", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
     })(AxiosProvider = App.AxiosProvider || (App.AxiosProvider = {}));
 })(App || (App = {}));
 //# sourceMappingURL=AxiosProvider.js.map

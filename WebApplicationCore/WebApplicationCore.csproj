@@ -16,10 +16,12 @@
     <Content Remove="Pages\Pedidos\PedidosGrid.cshtml" />
     <Content Remove="wwwroot\App\Camiones\CamionEdit.ts" />
     <Content Remove="wwwroot\App\Camiones\CamionGrid.ts" />
+    <Content Remove="wwwroot\App\Camiones\ConductorEdit.ts" />
     <Content Remove="wwwroot\App\CatalogoProductos\CatalogoProductosEdit.ts" />
     <Content Remove="wwwroot\App\CatalogoProductos\CatalogoProductosGrid.ts" />
     <Content Remove="wwwroot\App\Clientes\ClientesEdit.ts" />
     <Content Remove="wwwroot\App\Clientes\ClientesGrid.ts" />
+    <Content Remove="wwwroot\App\Conductor\ConductorGrid.ts" />
     <Content Remove="wwwroot\App\Entregas\EntregaEdit.ts" />
     <Content Remove="wwwroot\App\Entregas\EntregaGrid.ts" />
     <Content Remove="wwwroot\App\Pedidos\PedidosEdit.ts" />
@@ -38,10 +40,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\App\Camiones\CamionEdit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Camiones\CamionGrid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Conductor\ConductorEdit.ts" />
     <TypeScriptCompile Include="wwwroot\App\CatalogoProductos\CatalogoProductosEdit.ts" />
     <TypeScriptCompile Include="wwwroot\App\CatalogoProductos\CatalogoProductosGrid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Clientes\ClientesEdit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Clientes\ClientesGrid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Conductor\ConductorGrid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Entregas\EntregaEdit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Entregas\EntregaGrid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Pedidos\PedidosEdit.ts" />

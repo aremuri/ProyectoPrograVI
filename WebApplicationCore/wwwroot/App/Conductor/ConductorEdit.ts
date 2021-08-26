@@ -1,5 +1,4 @@
-﻿namespace ClientesEdit {
-
+﻿namespace ConductorEdit {
     var Entity = $("#AppEdit").data("entity");
 
     var Formulario = new Vue(
@@ -16,11 +15,11 @@
                     if (BValidateData(this.Formulario)) {
                         Loading.fire("Guardando");
 
-                        App.AxiosProvider.ClientesGuardar(this.Entity).then(data => {
+                        App.AxiosProvider.ConductorGuardar(this.Entity).then(data => {
                             Loading.close();
 
                             if (data.CodeError == 0) {
-                                Toast.fire({ title: "Se guardó el registro", icon: "success" }).then(() => window.location.href = "Clientes/ClientesGrid")
+                                Toast.fire({ title: "Se guardó el registro", icon: "success" }).then(() => window.location.href = "Conductor/ConductorGrid")
                             }
                             else {
                                 Toast.fire({ title: data.MsgError, icon: "error" })

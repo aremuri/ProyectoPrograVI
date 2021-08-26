@@ -8,11 +8,11 @@
 	@Estado BIT
 AS
  BEGIN
-   SET NOCOUNT ON
-   BEGIN TRANSACTION TRASA
+  SET NOCOUNT ON
 
-   BEGIN TRY 
-	   IF NOT EXISTS( SELECT * FROM Clientes WHERE @Cedula = Cedula) BEGIN
+	BEGIN TRANSACTION TRASA
+
+	BEGIN TRY
 
 	   INSERT INTO Clientes 
 	   (Cedula, Nombre, Apellidos, Direccion, FechaNacimiento, Telefono, Estado)
@@ -22,25 +22,17 @@ AS
 		 @Cedula, @Nombre, @Apellidos, @Direccion, @FechaNacimiento, @Telefono, @Estado
 	   )
 
+		COMMIT TRANSACTION TRASA
+		
 		SELECT 0 AS CodeError, '' AS MsgError
 
-	   END 
-	   ELSE BEGIN 
+	END TRY
 
-	   SELECT -1 AS CodeError, 'Este Numero de Cedula ya existe en la Base de Datos' AS MsgError
+	BEGIN CATCH
+		SELECT 
+				ERROR_NUMBER() AS CodeError
+			,	ERROR_MESSAGE() AS MsgError
 
-	   END
-
-	   COMMIT TRANSACTION TRASA
-
-   END TRY
-
-   BEGIN CATCH
-		 SELECT 
-			 ERROR_NUMBER() AS CodeError
-		   , ERROR_MESSAGE() AS MsgError
-
-	   ROLLBACK TRANSACTION TRASA
-   END CATCH
-
- END
+			ROLLBACK TRANSACTION TRASA
+	END CATCH
+END

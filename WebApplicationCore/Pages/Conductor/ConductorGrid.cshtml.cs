@@ -7,26 +7,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 using Entity;
 
-namespace WebApplicationCore.Pages.Clientes
+namespace WebApplicationCore.Pages.Conductor
 {
-    public class ClientesGridModel : PageModel
+    public class ConductorGridModel : PageModel
     {
-        private readonly IClientesServices clientesServices;
+        private readonly IConductorServices conductorServices;
 
-        public ClientesGridModel(IClientesServices clientesServices)
+        public ConductorGridModel(IConductorServices conductorServices)
         {
-            this.clientesServices = clientesServices;//Variable que me permite jalar los metodos
+            this.conductorServices = conductorServices;
         }
 
-        public IEnumerable<ClientesEntity> GridList { get; set; } = new List<ClientesEntity>();//Propiedad IEnumerable
-
+        public IEnumerable<ConductoresEntity> GridList { get; set; } = new List<ConductoresEntity>();
 
         public async Task<IActionResult> OnGet()
         {
             try
             {
 
-                GridList = await clientesServices.Get();
+                GridList = await conductorServices.Get();
 
                 return Page();
             }
@@ -42,9 +41,9 @@ namespace WebApplicationCore.Pages.Clientes
         {
             try
             {
-                var result = await clientesServices.Delete(new()
+                var result = await conductorServices.Delete(new()
                 {
-                    IdCliente = id
+                    ConductorId = id
                 });
 
                 return new JsonResult(result);
